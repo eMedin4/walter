@@ -12,7 +12,7 @@
 		
 			<div class="info-data">
 				<h1 class="h1">En Cines</h1>
-				<h2>Cartelera de cines, {{$date->formatLocalized('semana del %e de %B de %Y')}}</h2>
+				<h2>{{$list->description}}</h2>
 				<ul class="info-details">
 					<li>{{$list->movies->count()}} películas</li>
 					<li class="separator">·</li>

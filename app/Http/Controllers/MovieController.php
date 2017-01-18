@@ -48,8 +48,7 @@ class MovieController extends Controller
 	{
 		$listId = 1;
 		$list = $this->show->home($listId);
-		$date = $this->show->getParam('Cartelera', 'date');
-		return view('pages.home', compact('list', 'date'));
+		return view('pages.home', compact('list'));
 	}
 
 	public function characters($name, $id)

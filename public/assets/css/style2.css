@@ -145,6 +145,7 @@ body > .inner {
 }
 
 
+
 /************************************************************************************************
     HEADER AND SEARCH 
 ************************************************************************************************/
@@ -154,7 +155,7 @@ body > .inner {
     z-index: 1;
     display: flex;
     justify-content: space-between;
-    padding: 0 5px;
+    padding: 0 8px;
 }
 
 .search {
@@ -215,7 +216,8 @@ body > .inner {
 .logo .image {
     display: inline-block;
     height: 40px;
-    padding: 9px;
+    font-size: 28px;
+    padding: 6px;
 }
 
 .logo h2 {
@@ -229,29 +231,43 @@ body > .inner {
 .search-launch,
 .no-logged {
     display: inline-block;
-    font-size: 20px;
+    font-size: 22px;
     color: #fff;
     width: 40px;
     text-align: center;
-    line-height: 40px;
+    position: relative;
+    top: 2px;
 }
 
 .no-logged {
     font-size: 22px;
-    position: relative;
-    top: 1px;
+    padding: 6px 0;
 }
 
 .user-logged {
-    letter-spacing: -0.3px;
     font-weight: 600;
     font-size: 20px;
-    padding: 8px;
-    width: 120px;
+    padding: 4px;
+    display: inline-block;
+}
+
+.mini-nick {
+    display: inline-block;
+    width: 32px;
+    line-height: 32px;
+    text-align: center;
+    border-radius: 16px;
+    background: #373d40;    
+}
+
+.nick {
+    display: none;
+    padding-right: 5px;
+    width: 96px;
     white-space: nowrap;
     overflow: hidden;
-    display: inline-block;
-    float: right; /*para que no descuadre con overflow hidden*/
+    vertical-align: bottom;
+    text-align: right;
 }
 
 .search-results {
@@ -295,7 +311,6 @@ body > .inner {
 .menu {
     padding: 8px 0;
 }
-
 
 
 /************************************************************************************************
@@ -768,6 +783,20 @@ button.btn {
     background: #262a2d;
     position: relative;
     top: 33px;    
+}
+
+.high-tag {
+    color: #ff6e6e;
+    font-size: 16px;
+    line-height: 14px;
+    padding: 8px 2px 0;
+}
+
+.tag {
+    color: #a4abb1;
+    font-size: 14px;
+    line-height: 13px;
+    padding: 8px 2px 0;
 }
 
 
@@ -1427,7 +1456,7 @@ input[type=checkbox]:checked + .lbl-check:before {
         /*SEARCH*/
 
         .page-header {
-            padding: 6px 5px 12px;
+            padding: 6px 10px 12px;
         }
 
         .search-launch,
@@ -1484,16 +1513,6 @@ input[type=checkbox]:checked + .lbl-check:before {
         .critics {
             padding: 25px 30px;
         }
-
-    /*SEARCH*/
-
-    .logo .image {
-        padding-right: 0;
-    }
-
-    .logo h2 {
-        display: inline-block;
-    }
 
 }
 
@@ -1603,7 +1622,27 @@ input[type=checkbox]:checked + .lbl-check:before {
         /*SEARCH*/
 
         .page-header {
-            padding: 15px 5px;      
+            padding: 15px 10px;      
+        }
+
+        .logo a {
+            width: 140px;
+        }
+
+        .logo .image {
+            padding-right: 0;
+        }
+
+        .logo h2 {
+            display: inline-block;
+        }
+
+        .nick {
+            display: inline-block;
+        }
+
+        .logo {
+            width: 140px;
         }
 
         /*LOGIN*/

@@ -4,7 +4,7 @@
 	<div class="logo">
 		<a href="{{route('home')}}">
 			<div class="image">
-				<img src="{{asset('/assets/images/logo.png')}}" alt="Indicecine" title="Indicecine" width="22" height="16">
+				<i class="fa fa-indicecine"></i>
 			</div>
 			<h2>IndiceCine</h2>
 		</a>
@@ -26,7 +26,8 @@
 		@if (Auth::check())
 		    <a class="user-logged" href="{{route('userlists', ['name' => str_slug(Auth::user()->name), 'id' => Auth::user()->id])}}">
 			    @if(Auth::user()->avatar)
-			    	{{Auth::user()->name}}
+			    	<div class="nick">{{Auth::user()->nick}}</div>
+			    	<div class="mini-nick">{{substr(Auth::user()->nick, 0, 1)}}</div>
 			    @else
 		    		<i class="fa fa-user-circle-o avatar-default-me"></i>
 			    @endif

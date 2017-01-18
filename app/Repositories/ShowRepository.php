@@ -47,7 +47,8 @@ class ShowRepository {
     {
         return MovieList::where('id', $listId)->with(['movies' => function($q) {
             $q->orderBy('order');
-        }])->first();
+        }, 'movies.theatre'
+        ])->first();
     }
 
     public function character($id)

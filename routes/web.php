@@ -29,6 +29,7 @@ POSTER QUE NO SE GUARDA: 2QoLPgwWphEO2eVDm6ehGxCWoXV c9YqifOPRSdSPapWVwRZipwORz7
 		Route::get('/scraper', 'BuildController@getTheatres');
 		Route::get('/scraperall', 'BuildController@getAll');
 		Route::get('/testmojo', 'BuildController@getMojo');
+		Route::get('/checkposter', 'BuildController@checkPoster');
 	});
 
 /*

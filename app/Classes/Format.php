@@ -18,6 +18,9 @@ class Format
     public function date($value)
     {
     	$value = urldecode(str_replace('%E2%80%83', '', urlencode($value)));
+    	if($value == 'Sin fecha confirmada') {
+    		return NULL;
+    	}
     	preg_match_all('/(\d)|(\w)/', $value, $matches);
     	$numbers = implode($matches[1]);
     	$year = substr($numbers, -4);

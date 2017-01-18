@@ -12,6 +12,7 @@ use App\Entities\Genre;
 use App\Entities\MovieList;
 use App\Classes\Images;
 
+use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use Auth;
 
@@ -124,7 +125,7 @@ class BuildRepository {
             $movie->critics()->delete();
             //GUARDAMOS LAS NUEVAS
             foreach ($critics as $value) {
-                if (strlen($value['author']['name']) < 40) { //puntualmente alguna critica llega mal screpeada con texto en el ext_author, la saltamos
+                if (strlen($value['author']['name']) < 40 AND strlen($value['author']['alias']) < 40) { //puntualmente alguna critica llega mal screpeada con texto en el ext_author, la saltamos
                     $critic = new Critic;
                     $critic->text           = $value['text'];
                     $critic->ext_author     = $value['author']['name'];
@@ -159,12 +160,14 @@ class BuildRepository {
 
     public function resetMainList()
     {
+        Theatre::truncate();
         $list = MovieList::find(1);
         $list->movies()->detach();
     }
 
     public function setDescriptionList($date)
     {
+        echo $date;
         $list = MovieList::find(1);
         $date = Carbon::createFromFormat('Y-m-d', $date);
         $list->description = "Cartelera de cines en España, semana del " . $date->formatLocalized('%e de %B de %Y');
@@ -175,6 +178,7 @@ class BuildRepository {
     {
         $list = MovieList::find(1);
         $list->movies()->attach($movieId, ['order' => $order]);
+
         $theatre = new Theatre;
         if ($order == 1) { 
             $name = 'Próximo estreno';
@@ -311,6 +315,21 @@ class BuildRepository {
         $list = MovieList::find($listId);  
         if ($list->savedToUsers()->count()) {
             $list->savedToUsers()->detach(Auth::id());   
+        }
+    }
+
+    public function checkPoster()
+    {
+        $movies = Movie::select('id', 'poster')->get();
+        foreach ($movies as $movie) {
+            $updateMovie = Movie::find($movie->id);
+            if (file_exists(public_path() . '/assets/posters/medium' . $movie->poster)) {
+                $updateMovie->check_poster = 1;
+            } else {
+                $updateMovie->check_poster = 0;
+                echo $movie->id . ' no se encuentra <br>';
+            }
+            $updateMovie->save();
         }
     }
 

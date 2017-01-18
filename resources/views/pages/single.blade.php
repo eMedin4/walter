@@ -12,7 +12,11 @@
 
 		<div class="info-single-header">
 			<div class="large-image">
-			    <img src="{{asset('/assets/posters/large') . $movie->poster}}" alt="{{$movie->title}}" title="poster de {{$movie->title}}" >
+				@if ($movie->check_poster)
+				    <img src="{{asset('/assets/posters/large') . $movie->poster}}" alt="{{$movie->title}}" title="poster de {{$movie->title}}" >
+				@else 
+					<img src="{{asset('/assets/images/no-poster.png')}}" alt="{{$movie->title}}" title="poster de {{$movie->title}}">
+				@endif			
 			</div>
 			@include('includes.rating-single')
 		</div>

@@ -47,8 +47,13 @@ $('.input-search').bind('paste keyup', function() {
             if (data.response == true) { /*si hay resultados*/
                 $('.search-results, .search-results-wrap').fadeIn(300).html('');
                 $.each(data.result, function(key,val) {
+                    if (val.check_poster) {
+                        var fullImgPath = path + `assets/posters/small` + val.poster;
+                    } else {
+                        var fullImgPath = path + `assets/images/no-poster-small.png`;
+                    }
                     var html = 
-                    `<a class="search-item" href="` + path + val.slug + `"><img src="` + path + `assets/posters/small` + val.poster + `" width="30" height="45"> 
+                    `<a class="search-item" href="` + path + val.slug + `"><img src="` + fullImgPath + `" width="30" height="45"> 
                         <p><span>` + val.title + `</span> ` + val.year + ` · ` + val.country + `</p>
                     </a>`;
                     $('.search-results').append(html);

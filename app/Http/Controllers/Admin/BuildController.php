@@ -37,7 +37,7 @@ class BuildController extends Controller
         $genres = $this->getGenres();
 
         //DATOS PARA PAGINAR: PAGINA INICIO Y NÚMERO DE PÁGINAS
-        $crawler = $client->request('GET', 'https://www.filmaffinity.com/es/allfilms_L_600.html');
+        $crawler = $client->request('GET', 'https://www.filmaffinity.com/es/allfilms_0-9_1.html');
         $numOfPages = 100; //si es 0 cojerá el numero de paginas totales de la letra
 
         //¿CUANTAS PAGINAS RECORREMOS?
@@ -173,6 +173,11 @@ class BuildController extends Controller
        	$crawler = new Crawler($matches1[1][0]);
 
         $this->scraper->scrapMojo($crawler);
+    }
+
+    public function checkPoster()
+    {
+        $this->repository->checkPoster();
     }
 
 

@@ -8,6 +8,7 @@ class Theatre extends Model
 {
 
 	public $timestamps = false;
+	protected $dates = ['date'];
 
     public function movie()
     {

@@ -28,6 +28,11 @@ class Movie extends Model
         return $this->belongsToMany(MovieList::class, 'list_movie', 'movie_id', 'list_id');
     }
 
+    public function theatre()
+    {
+        return $this->hasOne(Theatre::class);
+    }
+
 
     /*
         ATTRIBUTES
