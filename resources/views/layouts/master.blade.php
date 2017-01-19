@@ -41,8 +41,7 @@
 	</div>
 
 <!-- All site scripts -->
-	<script src="{{ asset('/assets/js/jquery-3.1.1.js') }}"></script>
-	<script src="{{ asset('/assets/js/sortable.js') }}"></script>
+	<<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="{{ asset('/assets/js/scripts2.js') }}"></script>
 
 <!-- Page scripts -->

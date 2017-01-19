@@ -37,8 +37,8 @@ class BuildController extends Controller
         $genres = $this->getGenres();
 
         //DATOS PARA PAGINAR: PAGINA INICIO Y NÚMERO DE PÁGINAS
-        $crawler = $client->request('GET', 'https://www.filmaffinity.com/es/allfilms_0-9_1.html');
-        $numOfPages = 100; //si es 0 cojerá el numero de paginas totales de la letra
+        $crawler = $client->request('GET', 'http://www.filmaffinity.com/es/allfilms_C_300.html');
+        $numOfPages = 101; //si es 0 cojerá el numero de paginas totales de la letra
 
         //¿CUANTAS PAGINAS RECORREMOS?
         if ($numOfPages == 0) {
@@ -73,7 +73,31 @@ class BuildController extends Controller
     	$configTmdb = $this->configTmdb();
     	$genres = $this->getGenres();
 
+    	//BORRAMOS LA TABLA
+    	$this->repository->resetMainList();
 
+    	//PELICULAS EN CARTELERA
+    	$crawler = $client->request('GET', 'http://www.filmaffinity.com/es/rdcat.php?id=new_th_es'); 
+
+    	//RECORREMOS TODAS LAS SECCIONES
+    	$count = $crawler->filter('#main-wrapper-rdcat')->count();
+		for ($i=0; $i<$count; $i++) {
+		
+			if ($i==0) {
+				//LA PRIMERA SECCION ES ESTRENOS SON 2 PUNTOS
+				$order = 2;
+				//LA FECHA DE ESTRENOS LA GUARDAMOS COMO FECHA DE CARTELERA
+				$dateSection = $this->format->date($crawler->filter('#main-wrapper-rdcat')->eq(0)->filter('.rdate-cat')->text());
+				$this->repository->setParams('Cartelera', NULL, $dateSection);
+			} else { 
+				//SI NO ES ESTRENO LE DAMOS 3 PUNTOS
+				$order=3; 
+			} 
+
+			//SCRAPEAMOS
+			$filterScore = 1;	//MINIMO DE VOTOS PARA SCRAPEAR
+			$results = array_merge($results, $this->scraper->scrapList($i, $client, $crawler, $order, $filterScore, $configTmdb));
+		}
 
     	/*
     		PRÓXIMOS ESTRENOS
@@ -90,7 +114,7 @@ class BuildController extends Controller
             $results = array_merge($results, (array) $this->scraper->scrapList($i, $client, $crawler, $order, $filterScore, $configTmdb));
         }
 
-		$this->sendToRepository($results, $toList = 1);
+		$this->sendToRepository($results, $toList = 1, $dateSection);
 
 		//enviamos reporte
 		Mail::to('elann2013@gmail.com')->send(new ReportScraper($results));
@@ -100,7 +124,9 @@ class BuildController extends Controller
 
     public function sendToRepository($results, $toList = NULL, $dateSection = NULL)
     {
-
+        if ($toList) {
+            $this->repository->setDescriptionList($dateSection);
+        }
         
     	foreach($results as $result) {
     		if ($result['boolean']) {
