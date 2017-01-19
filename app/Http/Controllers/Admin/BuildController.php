@@ -74,14 +74,14 @@ class BuildController extends Controller
     	$genres = $this->getGenres();
 
     	//BORRAMOS LA TABLA
-    	$this->repository->resetMainList();
+    	
 
     	//PELICULAS EN CARTELERA
     	$crawler = $client->request('GET', 'http://www.filmaffinity.com/es/rdcat.php?id=new_th_es'); 
 
     	//RECORREMOS TODAS LAS SECCIONES
     	$count = $crawler->filter('#main-wrapper-rdcat')->count();
-		for ($i=0; $i<4; $i++) {
+		for ($i=5; $i<14; $i++) {
 		
 			if ($i==0) {
 				//LA PRIMERA SECCION ES ESTRENOS SON 2 PUNTOS
