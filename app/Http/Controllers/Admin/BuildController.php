@@ -112,7 +112,7 @@ class BuildController extends Controller
 		//SCRAPEAMOS
 
 
-		$this->sendToRepository($results, $toList = 1, $dateSection);
+		$this->sendToRepository($results, $toList = 1);
 
 		//enviamos reporte
 		Mail::to('elann2013@gmail.com')->send(new ReportScraper($results));
@@ -122,9 +122,7 @@ class BuildController extends Controller
 
     public function sendToRepository($results, $toList = NULL, $dateSection = NULL)
     {
-        if ($toList) {
-            $this->repository->setDescriptionList($dateSection);
-        }
+
         
     	foreach($results as $result) {
     		if ($result['boolean']) {
