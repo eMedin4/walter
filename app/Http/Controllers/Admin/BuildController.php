@@ -73,31 +73,7 @@ class BuildController extends Controller
     	$configTmdb = $this->configTmdb();
     	$genres = $this->getGenres();
 
-    	//BORRAMOS LA TABLA
-    	
 
-    	//PELICULAS EN CARTELERA
-    	$crawler = $client->request('GET', 'http://www.filmaffinity.com/es/rdcat.php?id=new_th_es'); 
-
-    	//RECORREMOS TODAS LAS SECCIONES
-    	$count = $crawler->filter('#main-wrapper-rdcat')->count();
-		for ($i=5; $i<14; $i++) {
-		
-			if ($i==0) {
-				//LA PRIMERA SECCION ES ESTRENOS SON 2 PUNTOS
-				$order = 2;
-				//LA FECHA DE ESTRENOS LA GUARDAMOS COMO FECHA DE CARTELERA
-				$dateSection = $this->format->date($crawler->filter('#main-wrapper-rdcat')->eq(0)->filter('.rdate-cat')->text());
-				$this->repository->setParams('Cartelera', NULL, $dateSection);
-			} else { 
-				//SI NO ES ESTRENO LE DAMOS 3 PUNTOS
-				$order=3; 
-			} 
-
-			//SCRAPEAMOS
-			$filterScore = 1;	//MINIMO DE VOTOS PARA SCRAPEAR
-			$results = array_merge($results, $this->scraper->scrapList($i, $client, $crawler, $order, $filterScore, $configTmdb));
-		}
 
     	/*
     		PRÓXIMOS ESTRENOS
@@ -110,7 +86,9 @@ class BuildController extends Controller
 		$filterScore = 200;	//MINIMO DE VOTOS PARA SCRAPEAR
 
 		//SCRAPEAMOS
-
+        for ($i=0; $i<$count; $i++) {
+            $results = array_merge($results, (array) $this->scraper->scrapList($i, $client, $crawler, $order, $filterScore, $configTmdb));
+        }
 
 		$this->sendToRepository($results, $toList = 1);
 
