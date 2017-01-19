@@ -81,7 +81,7 @@ class BuildController extends Controller
 
     	//RECORREMOS TODAS LAS SECCIONES
     	$count = $crawler->filter('#main-wrapper-rdcat')->count();
-		for ($i=0; $i<$count; $i++) {
+		for ($i=0; $i<4; $i++) {
 		
 			if ($i==0) {
 				//LA PRIMERA SECCION ES ESTRENOS SON 2 PUNTOS
@@ -110,9 +110,7 @@ class BuildController extends Controller
 		$filterScore = 200;	//MINIMO DE VOTOS PARA SCRAPEAR
 
 		//SCRAPEAMOS
-        for ($i=0; $i<$count; $i++) {
-            $results = array_merge($results, (array) $this->scraper->scrapList($i, $client, $crawler, $order, $filterScore, $configTmdb));
-        }
+
 
 		$this->sendToRepository($results, $toList = 1, $dateSection);
 
