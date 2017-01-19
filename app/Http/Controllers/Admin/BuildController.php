@@ -110,7 +110,9 @@ class BuildController extends Controller
 		$filterScore = 200;	//MINIMO DE VOTOS PARA SCRAPEAR
 
 		//SCRAPEAMOS
- 
+        for ($i=0; $i<$count; $i++) {
+            $results = array_merge($results, (array) $this->scraper->scrapList($i, $client, $crawler, $order, $filterScore, $configTmdb));
+        }
 
 		$this->sendToRepository($results, $toList = 1, $dateSection);
 
