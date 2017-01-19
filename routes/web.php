@@ -59,6 +59,8 @@ POSTER QUE NO SE GUARDA: 2QoLPgwWphEO2eVDm6ehGxCWoXV c9YqifOPRSdSPapWVwRZipwORz7
 	    Route::get('/authsocial/manage/{provider}', ['as' => 'authsocial', 'uses' => 'Auth\SocialController@redirectToProvider']);
 	    Route::get('/authsocial/callback/{provider}', 'Auth\SocialController@handleProviderCallback');
 	    Route::get('/login', ['as' => 'login', 'uses' => 'Auth\SocialController@login']);
+	    Route::get('/login/admin', ['as' => 'loginadmin', 'uses' => 'Auth\SocialController@loginAdmin']);
+	    Route::post('/login/admin', ['as' => 'postloginadmin', 'uses' => 'Auth\SocialController@postLoginAdmin']);
 	});
 
 /*

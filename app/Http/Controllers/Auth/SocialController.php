@@ -118,6 +118,19 @@ class SocialController extends Controller
         return view('pages.login');
     }
 
+    public function loginAdmin()
+    {
+        return view('pages.loginadmin');
+    }
+
+    public function postLoginAdmin(Request $request)
+    {
+        if (Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')])) {
+            return redirect()->route('home');
+        } else {
+            return back()->withInputs();
+        }
+    }
 
     public function logout()
     {
