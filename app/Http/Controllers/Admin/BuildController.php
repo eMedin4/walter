@@ -95,8 +95,7 @@ class BuildController extends Controller
 			} 
 
 			//SCRAPEAMOS
-			$filterScore = 1;	//MINIMO DE VOTOS PARA SCRAPEAR
-			$results = array_merge($results, $this->scraper->scrapList($i, $client, $crawler, $order, $filterScore, $configTmdb));
+			
 		}
 
     	/*
