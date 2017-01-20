@@ -73,5 +73,5 @@
 @endsection
 
 @section('scripts')
-	<script src="{{ asset('/assets/js/sortable.min.js') }}"></script>
+	<script src="{{ asset('/assets/js/sortable.js') }}"></script>
 @endsection
