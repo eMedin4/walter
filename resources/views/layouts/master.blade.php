@@ -42,7 +42,7 @@
 
 <!-- All site scripts -->
 
-	<script src="{{ asset('/assets/js/scripts.js') }}"></script>
+
 
 <!-- Page scripts -->
 	@yield('scripts')
