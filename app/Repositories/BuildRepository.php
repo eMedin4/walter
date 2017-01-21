@@ -320,7 +320,7 @@ class BuildRepository {
 
     public function checkPoster()
     {
-        $movies = Movie::select('id', 'poster')->get();
+        $movies = Movie::select('id', 'poster')->where('id', '>', 24402)->get();
         foreach ($movies as $movie) {
             $updateMovie = Movie::find($movie->id);
             if (file_exists(public_path() . '/assets/posters/medium' . $movie->poster)) {
