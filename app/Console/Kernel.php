@@ -26,7 +26,7 @@ class Kernel extends ConsoleKernel
     {  
 
         $schedule->call('App\Http\Controllers\Admin\BuildController@getTheatres')
-                 ->everyHour();
+                 ->hourly();
 
     }
 
