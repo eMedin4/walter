@@ -23,9 +23,11 @@ class Kernel extends ConsoleKernel
      * @return void
      */
     protected function schedule(Schedule $schedule)
-    {
+    {  
+
         $schedule->call('App\Http\Controllers\Admin\BuildController@getAll')
                  ->everyMinute();
+                 
     }
 
     /**
