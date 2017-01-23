@@ -37,8 +37,8 @@ class BuildController extends Controller
         $genres = $this->getGenres();
 
         //DATOS PARA PAGINAR: PAGINA INICIO Y NÚMERO DE PÁGINAS
-        $crawler = $client->request('GET', 'http://www.filmaffinity.com/es/allfilms_C_300.html');
-        $numOfPages = 101; //si es 0 cojerá el numero de paginas totales de la letra
+        $crawler = $client->request('GET', 'http://www.filmaffinity.com/es/allfilms_C_1.html');
+        $numOfPages = 1; //si es 0 cojerá el numero de paginas totales de la letra
 
         //¿CUANTAS PAGINAS RECORREMOS?
         if ($numOfPages == 0) {
