@@ -5,8 +5,6 @@ namespace App\Console;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
-use Carbon\Carbon;
-
 class Kernel extends ConsoleKernel
 {
     /**
@@ -27,9 +25,8 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {  
 
-        $schedule->call(function () {
-            echo 'hola' . Carbon::now();
-        })->everyFiveMinutes();
+        $schedule->call('App\Http\Controllers\Admin\BuildController@getTheatres')
+                ->everyFiveMinutes();
 
     }
 
