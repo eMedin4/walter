@@ -63,6 +63,7 @@ class BuildRepository {
         $this->storeCharacters($movie, $data['tmCredits']);
         $this->storeGenres($movie, $data['tmGenres']);
         $this->storeCritics($movie, $data['faCritics']);
+        $this->checkPosterById($movie);
 
         return $movie;
     }
@@ -331,6 +332,17 @@ class BuildRepository {
             }
             $updateMovie->save();
         }
+    }
+
+    public function checkPosterById($movie)
+    {
+        if (file_exists(public_path() . '/assets/posters/medium' . $movie->poster)) {
+            $movie->check_poster = 1;
+        } else {
+            $movie->check_poster = 0;
+            echo $movie->id . ' no se encuentra <br>';
+        }
+        $movie->save();
     }
 
 
