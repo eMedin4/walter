@@ -29,7 +29,7 @@ class Kernel extends ConsoleKernel
 
         $schedule->call(function () {
             echo 'hola' . Carbon::now();
-        });
+        })->everyFiveMinutes();
 
     }
 
