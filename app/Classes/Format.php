@@ -107,6 +107,12 @@ class Format
 		return $value;
 	}
 
+	// http://www.movistarplus.es/ficha/a-ballerina-s-tale?tipo=E&id=1275910  : ELIMINA TODO MENOS EL ID
+	public function movistarId($value)
+	{
+		$value = explode("&id=", $value);
+		return $value[1];
+	}
 
 	//QUITA (TV) DEL FINAL SI LO TIENE
 	public function faTitle($value)

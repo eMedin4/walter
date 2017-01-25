@@ -53,7 +53,9 @@ class ShowRepository {
 
     public function character($id)
     {
-        return Character::with('movies')->find($id);
+        return Character::with(['movies' => function($q) {
+            $q->orderBy('year', 'desc');
+        }])->find($id);
     }
 
     public function comments($id)
@@ -119,12 +121,14 @@ class ShowRepository {
 
     public function liveSearch($string)
     {
-        return Movie::where('title', 'LIKE', '%' . $string . '%')->take(10)->get();
+        return Movie::whereRaw("MATCH(title,original_title) AGAINST(? IN BOOLEAN MODE)", 
+                array($string))->take(10)->get();
     }
 
-    public function normalSearch($search)
+    public function normalSearch($string)
     {
-        return Movie::where('title', 'LIKE', '%' . $search . '%')->take(50)->get();
+        return Movie::whereRaw("MATCH(title,original_title) AGAINST(? IN BOOLEAN MODE)", 
+                array($string))->take(50)->get();
     }
 
 }

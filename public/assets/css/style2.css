@@ -203,6 +203,7 @@ body > .inner {
     line-height: 56px;
     position: relative;
     z-index: 21;
+    color: #959ba0;
 }
 
 .logo {
@@ -370,6 +371,10 @@ body > .inner {
 
 .info-details .author a {
     color: #bee9ff;
+}
+
+.character-image {
+    margin-top: 10px;
 }
 
 .btn {
@@ -787,17 +792,24 @@ button.btn {
 
 .high-tag {
     color: #ff6e6e;
-    font-size: 16px;
-    line-height: 14px;
+    font-size: 14px;
+    line-height: 11px;
     padding: 8px 2px 0;
+    font-weight: 600;
+}
+
+.high-tag time {
+    float: right;
 }
 
 .tag {
-    color: #a4abb1;
+    color: #848e96;
     font-size: 14px;
-    line-height: 13px;
+    line-height: 11px;
     padding: 8px 2px 0;
+    font-weight: 600;
 }
+
 
 
 /************************************************************************************************

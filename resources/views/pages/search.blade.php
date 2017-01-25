@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
-@section('title', 'Buscar - {{$search}}')
-@section('metadescription', 'Buscar - {{$search}}')
+@section('title', 'Buscar - ' . $search)
+@section('metadescription', 'Buscar - ' . $search)
 @section('bodyclass', 'home-page')
 
 @section('content')
@@ -10,7 +10,8 @@
 
 		<section class="info">
 			<div class="info-data">
-				<h1 class="h1"><span>Buscar:</span> {{$search}}</h1>
+				<h1 class="h1">{{$search}}</h1>
+				<h2>Resultados de búsqueda</h2>
 			</div>
 		</section>
 

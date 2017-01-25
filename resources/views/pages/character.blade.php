@@ -13,7 +13,7 @@
 			<p>{{$character->department}}</p>
 
 			@if($character->photo && file_exists(public_path() . '/assets/profiles' . $character->photo))
-				<img src="{{asset('/assets/profiles') . $character->photo}}" alt="{{$character->photo}}" title="foto de {{$character->photo}}">
+				<img class="character-image" src="{{asset('/assets/profiles') . $character->photo}}" alt="{{$character->photo}}" title="foto de {{$character->photo}}">
 			@endif
 		</section>
 

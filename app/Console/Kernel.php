@@ -26,7 +26,7 @@ class Kernel extends ConsoleKernel
     {  
 
         $schedule->call('App\Http\Controllers\Admin\BuildController@getTheatres')
-                ->everyFiveMinutes();
+                ->weekly()->fridays()->at('06:00')->appendOutputTo(storage_path() . "/logs/scrap.log");
 
     }
 

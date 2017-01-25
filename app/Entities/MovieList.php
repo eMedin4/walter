@@ -31,11 +31,12 @@ class MovieList extends Model
     /*ACCESSORS*/
 
     /*CANTIDAD DE ELEMENTOS VACÍOS A RELLENAR HASTA COMPLETAR FILAS DE 7 EN EL LOOP*/
-    public function getCountItemAttribute() {
+    /*CANCELADO PORQUE SOLO SIRVE PARA LISTAS, NO SIRVE PARA RESULTADOS DE BUSQUEDA NI PARA PELICULAS DE ACTORES*/
+/*    public function getCountItemAttribute() {
         $countList = $this->movies->count();
         return [
             'remainder' => 7 - $countList,
             'total' => $countList
         ];
-    }
+    }*/
 }

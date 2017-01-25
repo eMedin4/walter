@@ -9,7 +9,7 @@ POSTER QUE NO SE GUARDA: 2QoLPgwWphEO2eVDm6ehGxCWoXV c9YqifOPRSdSPapWVwRZipwORz7
 */
 
 	Route::get('/artisan', function() {
-		/*Artisan::call('make:migration', ['name' => 'create_lists_user_pivot_table', '--table' => 'lists']);*/
+		/*Artisan::call('make:migration', ['name' => 'create_full_text_index', '--table' => 'movies']);*/
 		Artisan::call('migrate');
 		/*Artisan::call('make:model', ['name' => 'Entities/List']);*/
 		/*Artisan::call('make:controller', ['name' => 'ListController']);*/
@@ -30,6 +30,7 @@ POSTER QUE NO SE GUARDA: 2QoLPgwWphEO2eVDm6ehGxCWoXV c9YqifOPRSdSPapWVwRZipwORz7
 		Route::get('/scraperall', 'BuildController@getAll');
 		Route::get('/testmojo', 'BuildController@getMojo');
 		Route::get('/checkposter', 'BuildController@checkPoster');
+		Route::get('/movistar', 'BuildController@movistar');
 	});
 
 /*

@@ -8,9 +8,11 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Repositories\BuildRepository;
 use App\Classes\Scraper;
+use App\Classes\Movistar;
 use App\Classes\Format;
 use App\Mail\ReportScraper;
 
+use Carbon\Carbon;
 use Goutte\Client;
 use Symfony\Component\DomCrawler\Crawler;
 
@@ -19,7 +21,7 @@ class BuildController extends Controller
 
 	private $repository;
 	private $scraper;
-	private $format;
+    private $format;
 
 	public function __Construct(BuildRepository $repository, Scraper $scraper, Format $format)
 	{
@@ -68,6 +70,7 @@ class BuildController extends Controller
 
     public function getTheatres()
     {
+        echo Carbon::now();
     	$client = new Client();
     	$results = [];
     	$configTmdb = $this->configTmdb();
@@ -119,6 +122,14 @@ class BuildController extends Controller
 		//enviamos reporte
 		Mail::to('elann2013@gmail.com')->send(new ReportScraper($results));
 		dd($results);
+    }
+
+    public function movistar(Movistar $movistar)
+    {
+        $client = new Client();
+        $crawler = $client->request('GET', 'http://www.movistarplus.es/guia-az'); 
+        $movistar->start($crawler);
+
     }
 
 

@@ -29,8 +29,7 @@
 					</div>
 				@elseif (Route::is('home') && $movie->theatre->name != 'Próximo estreno')
 					<div class="tag">
-						<span>En cartelera </span>
-						<time>{{$movie->theatre->date->diffForHumans()}}</time>
+						<span>En cartelera {{$movie->theatre->date->diffForHumans()}}</span>
 					</div>
 				@endif
 
@@ -44,9 +43,10 @@
 	@endforeach
 
 
+
 	@if ($movies->count() < 7)
-		@for ($i = 0; $i < $list->countItem['remainder']; $i++)
-		    <article class="empty-grid empty-grid-{{$list->countItem['total'] + $i + 1}} js-ignore-edit"><!-- grid  -->
+		@for ($i = 0; $i < 7 - $movies->count(); $i++)
+		    <article class="empty-grid empty-grid-{{$movies->count() + $i + 1}} js-ignore-edit"><!-- grid  -->
 		    	<div></div>
 		    </article>
 		@endfor
@@ -57,6 +57,7 @@
 		    </article>
 		@endfor	
 	@endif
+
 
 
 @else
