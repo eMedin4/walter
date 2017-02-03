@@ -341,6 +341,7 @@ body > .inner {
     font-size: 14px;
     color: #e1e6ea;
     text-transform: uppercase;
+    letter-spacing: .3px;
 }
 
 .related-lists-links {
@@ -727,7 +728,7 @@ button.btn {
     font-size: 13px;
     line-height: 14px;
     align-items: flex-end;
-    padding: 4px 2px 0px;
+    padding: 5px 2px 1px;
 }
 
 .meta .separator {

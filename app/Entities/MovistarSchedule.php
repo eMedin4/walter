@@ -10,7 +10,7 @@ class MovistarSchedule extends Model
     protected $table = 'movistar_schedule';
     protected $dates = ['time'];
 
-    public function movies()
+    public function movie()
 	{
 		return $this->belongsTo(Movie::class);
 	}

@@ -46,15 +46,16 @@ class MovieController extends Controller
 
 	public function home()
 	{
-		$list = $this->show->home();
-		return view('pages.home', compact('list'));
+		$specialList = $this->show->home();
+		$date = $this->show->getParam('Cartelera', 'date');
+		return view('pages.home', compact('specialList', 'date'));
 	}
 
 	public function tv()
 	{
-		$list = $this->show->tv();
+		$specialList = $this->show->tv();
 
-		return view('pages.tv', compact('list'));
+		return view('pages.tv', compact('specialList'));
 	}
 
 	public function characters($name, $id)

@@ -11,6 +11,9 @@ use App\Entities\Comment;
 use App\Entities\Genre;
 use App\Entities\MovieList;
 use App\Entities\User;
+use App\Entities\MovistarSchedule;
+
+use Carbon\Carbon;
 
 class ShowRepository {
 
@@ -18,11 +21,6 @@ class ShowRepository {
     {
         return Param::where('name', $name)->value($column);
     }
-
-/*    public function getMovie($id)
-    {
-    	return Movie::find($id);
-    }*/
 
     public function movieBySlug($slug)
     {
@@ -45,12 +43,14 @@ class ShowRepository {
 
     public function home()
     {
-        return MovieList::where('id', 1)->with(['movies.theatre'])->first();
+        return Theatre::with('movie')->orderBy('date', 'desc')->get();
+        //MovieList::where('id', 1)->with(['movies.theatre'])->first();
     }
 
     public function tv()
     {
-        return MovieList::where('id', 2)->with('movies', 'movies.movistarSchedule')->first();
+        return MovistarSchedule::with('movie')->where('time', '>', Carbon::now()->subHour())->orderBy('time')->get();
+        //MovieList::where('id', 2)->with('movies', 'movies.movistarSchedule')->first();
     }
 
     public function character($id)

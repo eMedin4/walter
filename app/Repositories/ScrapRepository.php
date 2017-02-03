@@ -28,30 +28,15 @@ class ScrapRepository {
             $schedule->channel_code = $channelCode;
             $schedule->movie_id = $movieId;
             $schedule->save();
-
-            $list = MovieList::find(2);
-            $list->movies()->attach($movieId, ['order' => 0]);
         }
 
     }
 
     public function resetTVList()
     {
-       
         if (MovistarSchedule::where('time', '<', Carbon::now()->subHour())->count()) {
-            //SI BUSCAMOS LAS PELICULAS PASADAS Y HACEMOS DETACH PROVOCAMOS UN PROBLEMA CON LAS PELICULAS DUPLICADAS EN LIST_MOVIES, SON LAS QUE TIENEN UNA FECHA PASADA PARA BORRAR JUNTO A OTRO PASE FUTURO PARA HOY, ELIMINARIAMOS LAS 2, POR ESO BUSCAMOS LAS FUTURAS Y HACEMOS SYNC --> *********No funciona, no echo**********
-            $movies = MovistarSchedule::where('time', '<', Carbon::now()->subHour())->pluck('movie_id');
-            echo 'Borramos: ';
-            foreach ($movies as $movie) {
-                echo $movie . ', ';
-            }
-            echo '<br>';
-            $list = MovieList::find(2);
-            $movies = $movies->toArray();
-            $list->movies()->detach($movies);
             MovistarSchedule::where('time', '<', Carbon::now()->subHour())->delete();
         }
-
     }
 
     public function searchByTitle($title)
