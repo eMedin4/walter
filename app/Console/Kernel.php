@@ -28,6 +28,9 @@ class Kernel extends ConsoleKernel
         $schedule->call('App\Http\Controllers\Admin\BuildController@getTheatres')
                 ->weekly()->fridays()->at('06:00')->appendOutputTo(storage_path() . "/logs/scrap.log");
 
+        $schedule->call('App\Http\Controllers\Admin\BuildController@movistar')
+                ->dailyAt('21:30');;
+
     }
 
     /**
