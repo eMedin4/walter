@@ -8,6 +8,29 @@
 */
 return [
 
+    'channels'  => [ 
+        'TVE', 'LA2', 'C4', 'T5', 'A3', 'SEXTA', 'MV3', 'MV1', 'CPCOLE', 'CPACCI', 'CPCOME', 'CPXTRA', 'AMC', 'AXN', 'SET', 'COSMO', 'CL13', 'PCM', 'DCH', 'DIVINI', 'FOXGE', 'FOXCR', 'HOLLYW', 'NEOX', 'NOVA', 'PARCH', 'SCI-FI', 'TCM', 'TNT',
+        ],
+
+    'moviesTvBan' => [
+        'Destinos de película', 'Días de cine', 'Hollywood y política', 'Entrevista Bafta', 'Estreno en salas', 'Pool Fiction', 'Cuadernos de rodaje', 'Gui en Hollywood', 'Night Shyamalan', 'Informe cine', 'The Comedian\'s Guide', 'Huellas en la nieve', 'Selección TCM', 'Producción TCM', 'The Enfield Haunting'
+    ],
+
+    'wordsTvBan' => [
+        'Disneymanía: '
+    ],
+
+    'moviesTvVerified' => [
+        'Batman v Superman: El amanecer de la justicia' => 21903, //puntuacion
+        'Hellboy II: El ejército dorado' => 14058, //II por 2
+        'Lorax: En busca de la trúfula perdida' => 11951, //puntuacion
+        'Beethoven 2, la familia crece' => 21958, //putuacion
+        'Misión imposible II (M:I-II)' => 8410, //II por 2
+        'Misión Imposible III' => 8411, //III por 3
+        'X-Men. La decisión final' => 173, //puntuacion
+        'Ong Bak 2. La leyenda del elefante' => 6736, //puntuacion
+    ],
+
     'matchMojo' => [
         'Zip and Zap and the Captain\'s Island' => 353,
         'Le goût des merveilles (The Sense of Wonder)' => 24324,

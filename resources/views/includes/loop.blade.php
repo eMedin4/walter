@@ -3,12 +3,23 @@
 		<article>
 			<a class="movie" href="{{route('show', $movie->slug)}}" data-id="{{$movie->id}}">
 
-				<div class="meta">
-					<span>{{$movie->year}} <i class="separator">·</i> {{$movie->country}}</span>
-					<div class="rating rating-{{$movie->average}}">
-						@include('includes.ratings', ['ratings' => $movie->average])
+				@if (Route::is('home'))
+					@if ($movie->theatre->name == 'Próximo estreno')
+						<div class="tag release-tag">
+							<span>{{$movie->theatre->name}}</span>
+							<time>{{$movie->theatre->date->formatLocalized('%d %b')}}</time>
+						</div>
+					@elseif ($movie->theatre->name != 'Próximo estreno')
+						<div class="tag">
+							<span>En cartelera {{$movie->theatre->date->diffForHumans()}}</span>
+						</div>
+					@endif
+				@elseif (Route::is('tv'))
+					<div class="tv-tag">
+						<img src="{{asset('/assets/images/channels') . '/' . $movie->movistarSchedule->channel_code . '.png'}}">
+						<time>{!!$movie->movistarSchedule->formatTime!!}</time>
 					</div>
-				</div>
+				@endif
 
 				<div class="medium-image relative">
 					@if ($movie->check_poster)
@@ -19,19 +30,14 @@
 					@if (isset($list->ordered) AND $list->ordered)
 						<div class="order" data-current="{{$movie->pivot->order}}">{{$movie->pivot->order}}</div>
 					@endif
-
 				</div>
 
-				@if (Route::is('home') && $movie->theatre->name == 'Próximo estreno')
-					<div class="high-tag">
-						<span>{{$movie->theatre->name}}</span>
-						<time>{{$movie->theatre->date->formatLocalized('%d %b')}}</time>
+				<div class="meta">
+					<span>{{$movie->year}} <i class="separator">·</i> {{$movie->country}}</span>
+					<div class="rating rating-{{$movie->average}}">
+						@include('includes.ratings', ['ratings' => $movie->average])
 					</div>
-				@elseif (Route::is('home') && $movie->theatre->name != 'Próximo estreno')
-					<div class="tag">
-						<span>En cartelera {{$movie->theatre->date->diffForHumans()}}</span>
-					</div>
-				@endif
+				</div>
 
 				<div class="loop-title">
 					<h3>{{$movie->title}}</h3>

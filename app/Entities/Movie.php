@@ -33,6 +33,11 @@ class Movie extends Model
         return $this->hasOne(Theatre::class);
     }
 
+    public function movistarSchedule()
+    {
+        return $this->hasOne(MovistarSchedule::class);
+    }
+
 
     /*
         ATTRIBUTES

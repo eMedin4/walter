@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Mail;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Repositories\BuildRepository;
+use App\Repositories\ShowRepository;
+use App\Repositories\ScrapRepository;
 use App\Classes\Scraper;
 use App\Classes\Movistar;
 use App\Classes\Format;
@@ -20,14 +22,20 @@ class BuildController extends Controller
 {
 
 	private $repository;
+    private $showRepository;
+    private $scrapRepository;
 	private $scraper;
     private $format;
+    private $movistar;
 
-	public function __Construct(BuildRepository $repository, Scraper $scraper, Format $format)
+	public function __Construct(BuildRepository $repository, Scraper $scraper, Format $format, ShowRepository $showRepository, Movistar $movistar, ScrapRepository $scrapRepository)
 	{
-		$this->repository = $repository;
+        $this->repository = $repository;
+		$this->showRepository = $showRepository;
 		$this->scraper = $scraper;
 		$this->format = $format;
+        $this->movistar = $movistar;
+        $this->scrapRepository = $scrapRepository;
 	}
 
 
@@ -124,14 +132,33 @@ class BuildController extends Controller
 		dd($results);
     }
 
-    public function movistar(Movistar $movistar)
+    public function movistar()
     {
-        $client = new Client();
-        $crawler = $client->request('GET', 'http://www.movistarplus.es/guia-az'); 
-        $movistar->start($crawler);
+        //BORRAMOS LA LISTA
+        $this->scrapRepository->resetTVList();
 
+        $client = new Client();
+        $day = $this->showRepository->getParam('ProximoDiaTv', 'date');
+        //$dateDay2 = $date->copy()->addDay(); //copy para que no cambie la fecha de $date y $dateDay1
+        foreach (config('movies.channels') as $channel) {
+            $this->oneDayMovistar($client, $day->toDateString(), $channel);
+            //$this->oneDayMovistar($client, $dateDay2->toDateString(), $channel);
+        }
+        $this->repository->setParams('ProximoDiaTv', NULL, $day->addDay());
+        echo '<br><br><strong>SE HAN SCRAPEADO LAS FECHAS ' . $day->subDay() . '</strong>';
     }
 
+    public function oneDayMovistar($client, $date, $channel)
+    {
+        $url = 'http://www.movistarplus.es/guiamovil/' . $channel . '/' . $date;
+        $crawler = $client->request('GET', $url); 
+        if ($client->getResponse()->getStatus() == 200) {
+            $this->movistar->start($crawler, $client, $channel, $date);
+        } else {
+            echo '<br><span style="color=purple">Al scrapear de Movistar la url ' . $url . ' responde error ' . $client->getResponse()->getStatus() . '</span>';
+            \Log::info('Al scrapear de Movistar la url ' . $url . ' responde error ' . $client->getResponse()->getStatus());
+        }
+    }
 
     public function sendToRepository($results, $toList = NULL, $dateSection = NULL)
     {

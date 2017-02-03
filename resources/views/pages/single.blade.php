@@ -47,10 +47,10 @@
 				<span class="btn btn-active js-new-list" data-csrf="{{ csrf_token() }}" data-movie="{{$movie->id}}" data-url="{{route('newlist')}}">Crear lista<i class="fa fa-add-to-list icon-new-list "></i></span>
 			@else
 				<ul class="register-lists lists-item" data-info="Crea y usa tus listas para consultarlas cuando quieras, puedes ordenarlas o crear rankings y compartirlas con todos">
-					<li><span class="js-launch-login" ">Vistas<i class="fa fa-popup icon-add-list"></i></span></li>
-					<li><span class="js-launch-login" ">Para ver<i class="fa fa-popup icon-add-list"></i></span></li>
-					<li><span class="js-launch-login" ">Mi top 100<i class="fa fa-popup icon-add-list"></i></span></li>
-					<li><span class="js-launch-login btn-active" ">Crear lista<i class="fa fa-add-to-list icon-new-list "></i></span></li>
+					<li><span class="js-launch-login">Vistas<i class="fa fa-popup icon-add-list"></i></span></li>
+					<li><span class="js-launch-login">Para ver<i class="fa fa-popup icon-add-list"></i></span></li>
+					<li><span class="js-launch-login">Mi top 100<i class="fa fa-popup icon-add-list"></i></span></li>
+					<li><span class="js-launch-login btn-active">Crear lista<i class="fa fa-add-to-list icon-new-list "></i></span></li>
 				</ul>
 			@endif
 		</div>

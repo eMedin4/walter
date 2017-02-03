@@ -32,7 +32,12 @@ class CreateListsTable extends Migration
         });
 
         DB::table('lists')->insert([
-            ['id' => 1,  'name' => 'En cines', 'ordered' => 0, 'user_id' => 1]       
+            ['id' => 1,  'name' => 'En cines', 'ordered' => 0, 'user_id' => 1],       
+            ['id' => 2,  'name' => 'En Television', 'ordered' => 0, 'user_id' => 1],       
+            ['id' => 3,  'name' => 'Prov1', 'ordered' => 0, 'user_id' => 1],       
+            ['id' => 4,  'name' => 'Prov2', 'ordered' => 0, 'user_id' => 1],       
+            ['id' => 5,  'name' => 'Prov3', 'ordered' => 0, 'user_id' => 1],       
+            ['id' => 6,  'name' => 'Prov4', 'ordered' => 0, 'user_id' => 1],       
         ]);
     }
 

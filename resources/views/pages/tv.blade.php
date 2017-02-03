@@ -11,11 +11,7 @@
 		<section class="info">
 		
 			<div class="info-data">
-				<h1 class="h1">En Cines</h1>
-				<div class="related-lists-links">
-					<span class="mark"></span>
-					<a href="{{route('tv')}}">En Tv</a>
-				</div>
+				<h1 class="h1">En TV</h1>
 				<h2>{{$list->description}}</h2>
 				<ul class="info-details">
 					<li>{{$list->movies->count()}} películas</li>
@@ -28,14 +24,14 @@
 				<div class="line"></div>
 				<h3>Otras listas populares</h3>
 				<ul class="lists-item">
-					<li><a href="{{route('tv')}}">En Tv</a></li>
+					<li><a href="{{route('home')}}">En Cines</a></li>
 				</ul>
 			</div>
 
 		</section>
 
 		<section class="loop">
-			@include('includes.loop', ['movies' => $list->movies->sortByDesc('theatre.date')])
+			@include('includes.loop', ['movies' => $list->movies->where('movistarSchedule.time', '>', \Carbon\Carbon::now()->subHour())->sortBy('movistarSchedule.time')->unique()])
 		</section>
 
 	</div>

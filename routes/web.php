@@ -10,7 +10,7 @@ POSTER QUE NO SE GUARDA: 2QoLPgwWphEO2eVDm6ehGxCWoXV c9YqifOPRSdSPapWVwRZipwORz7
 
 	Route::get('/artisan', function() {
 		/*Artisan::call('make:migration', ['name' => 'create_full_text_index', '--table' => 'movies']);*/
-		Artisan::call('migrate');
+		/*Artisan::call('migrate');*/
 		/*Artisan::call('make:model', ['name' => 'Entities/List']);*/
 		/*Artisan::call('make:controller', ['name' => 'ListController']);*/
 		dd(Artisan::output());
@@ -69,6 +69,7 @@ POSTER QUE NO SE GUARDA: 2QoLPgwWphEO2eVDm6ehGxCWoXV c9YqifOPRSdSPapWVwRZipwORz7
 */
 
 	Route::get('/', ['as' => 'home', 'uses' => 'MovieController@home']);
+	Route::get('/television', ['as' => 'tv', 'uses' => 'MovieController@tv']);
 	Route::get('/ficha/{name}/{id}', ['as' => 'character', 'uses' => 'MovieController@characters']);
 	Route::get('/perfil/listas/{name}/{id}', ['as' => 'userlists', 'uses' => 'MovieController@userLists']);
 	Route::get('/perfil/criticas/{name}/{id}', ['as' => 'usercritics', 'uses' => 'MovieController@userCritics']);

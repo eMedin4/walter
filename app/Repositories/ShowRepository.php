@@ -43,12 +43,14 @@ class ShowRepository {
     	return NULL;
     }
 
-    public function home($listId)
+    public function home()
     {
-        return MovieList::where('id', $listId)->with(['movies' => function($q) {
-            $q->orderBy('order');
-        }, 'movies.theatre'
-        ])->first();
+        return MovieList::where('id', 1)->with(['movies.theatre'])->first();
+    }
+
+    public function tv()
+    {
+        return MovieList::where('id', 2)->with('movies', 'movies.movistarSchedule')->first();
     }
 
     public function character($id)

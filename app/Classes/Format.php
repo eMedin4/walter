@@ -2,6 +2,8 @@
 
 namespace App\Classes;
 
+use Carbon\Carbon;
+
 class Format 
 {
 
@@ -73,6 +75,21 @@ class Format
     	return $value;
     }
 
+    //$date = 'Jueves 26 enero'; $time = 09:16;
+    public function movistarDate($time, $date)
+    {
+    	$time = $this->cleanData($time);
+    	$time = explode(':', $time);
+    	$date = explode('-', $date);
+		//año, mes, dia, hora, minuto, segundo, timezone
+		return Carbon::create($date[0], $date[1], $date[2], $time[0], $time[1]);
+    }
+
+    public function splitDay($date)
+    {
+    	$date = explode('-', $date);
+    	return Carbon::create($date[0], $date[1], $date[2], 6, 00);
+    }
 
     //DEVUELVE EL TEXTO SI EXISTE LA CLASE CSS O EL DEFAULT(0, '',...) SI NO
 	public function getElementIfExist($element, $class, $default) 
@@ -185,6 +202,42 @@ class Format
         }
 
         return isset($result) ? $result : NULL;
+    }
+
+    public function channelCode($channelCode)
+    {
+    	$channelEncoder = [
+	        'TVE'=> 'LA 1',
+	        'LA2'=> 'LA 2',
+	        'C4'=> 'Cuatro',
+	        'T5'=> 'Telecinco',
+	        'A3'=> 'Antena 3',
+	        'SEXTA'=> 'La Sexta',
+	        'MV3'=> '#0',
+	        'MV1'=> 'Movistar Estrenos',
+	        'CPCOLE'=> 'Movistar DCine',
+	        'CPACCI'=> 'Movistar Acción',
+	        'CPCOME'=> 'Movistar Comedia',
+	        'CPXTRA'=> 'Movistar Xtra',
+	        'AMC'=> 'AMC',
+	        'AXN'=> 'AXN',
+	        'SET'=> 'AXN White',
+	        'COSMO'=> 'COSMO',
+	        'CL13'=> 'Calle 13',
+	        'PCM'=> 'Comedy Central',
+	        'DCH'=> 'Disney Channel',
+	        'DIVINI'=> 'Divinity',
+	        'FOXGE'=> 'Fox',
+	        'FOXCR'=> 'Fox Life',
+	        'HOLLYW'=> 'Hollywood',
+	        'NEOX'=> 'Neox',
+	        'NOVA'=> 'Nova',
+	        'PARCH'=> 'Paramount Channel',
+	        'SCI-FI'=> 'SYFY',
+	        'TCM'=> 'TCM',
+	        'TNT'=> 'TNT',
+    	];
+    	return $channelEncoder[$channelCode];
     }
 
 

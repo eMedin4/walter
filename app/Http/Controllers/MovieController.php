@@ -46,9 +46,15 @@ class MovieController extends Controller
 
 	public function home()
 	{
-		$listId = 1;
-		$list = $this->show->home($listId);
+		$list = $this->show->home();
 		return view('pages.home', compact('list'));
+	}
+
+	public function tv()
+	{
+		$list = $this->show->tv();
+
+		return view('pages.tv', compact('list'));
 	}
 
 	public function characters($name, $id)
