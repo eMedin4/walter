@@ -2,6 +2,10 @@
 
 @section('title', 'Película - ' . $movie->title)
 @section('metadescription', $movie->title . ': Sinópsis, críticas y puntuaciones. Guarda ' . $movie->title . 'en tus listas o crea rankings personalizados')
+@section('og_url', Request::fullUrl())
+@section('og_title', $movie->title)
+@section('og_image', asset('/assets/posters/large') . $movie->poster)
+@section('og_description', $movie->review)
 @section('bodyclass', 'single-page')
 
 @section('content')

@@ -2,6 +2,10 @@
 
 @section('title', 'Cartelera - Películas en televisión')
 @section('metadescription', '¿Que películas estan echando ahora en Televisión? ¿Cuales podras ver esta noche? Toda las peliculas en programación de TDT, Movistar plus y canales digitales')
+@section('og_url', 'http://indicecine.net/Televisión')
+@section('og_title', 'Indicecine televisión')
+@section('og_image', asset('/assets/posters/large') . $specialList->where('channel_code', 'MV1')->first()->movie->poster)
+@section('og_description', 'Programación de televisión: Todas las películas de los canales de la TDT, Movistar Plus, y canales digitales')
 @section('bodyclass', 'home-page')
 
 @section('content')

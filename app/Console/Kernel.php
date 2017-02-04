@@ -26,11 +26,16 @@ class Kernel extends ConsoleKernel
     {  
 
         $schedule->call('App\Http\Controllers\Admin\BuildController@getTheatres')
-                ->weekly()->fridays()->at('06:00')->appendOutputTo(storage_path() . "/logs/scrap.log");
+                ->weekly()->fridays()->at('06:00');
 
         $schedule->call('App\Http\Controllers\Admin\BuildController@movistar')
-                ->dailyAt('21:30');;
+                ->dailyAt('06:00');
 
+        $schedule->call('App\Http\Controllers\Admin\BuildController@movistar')
+                ->dailyAt('07:35');    
+
+        $schedule->call('App\Http\Controllers\Admin\BuildController@movistar')
+                ->dailyAt('07:38');
     }
 
     /**

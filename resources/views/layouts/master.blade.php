@@ -7,6 +7,15 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<meta name="viewport" content="initial-scale=1.0, width=device-width">
+
+	<!-- Facebook objects -->
+	<meta property="fb:app_id"          content="1234567890" /> 
+	<meta property="og:type"            content="article" /> 
+	<meta property="og:url"             content="@yield('og_url')" /> 
+	<meta property="og:title"           content="@yield('og_title')" /> 
+	<meta property="og:image"           content="@yield('og_image')" /> 
+	<meta property="og:description"     content="@yield('og_description')" />
+
 	<link rel="stylesheet" href="{{ asset('/assets/css/style2.css') }}">
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600" rel="stylesheet">
 	<script src="https://use.fortawesome.com/712aad58.js"></script>
