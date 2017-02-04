@@ -3,26 +3,6 @@
 	<article>
 		<a class="list" href="{{route('list', ['id' => $list->id, 'name' => str_slug($list->name)])}}"><!-- data-id="{{$list->id}}" -->
 
-			<div class="meta">
-				<span>
-					<span>
-						@if ($list->movies->count() == 0)
-							No hay nada
-						@elseif ($list->movies->count() == 1)
-							1 película
-						@else
-							{{$list->movies->count()}} películas
-						@endif
-					</span>
-					@if ($list->updated_at)
-					<i class="separator">·</i>
-						<span class="no-wrap">
-							{{$list->updated_at->diffForHumans()}}
-						</span>
-					@endif
-				</span>
-			</div>
-
 			<div class="list-image relative">
 				@if ($list->movies->count() >= 4)
 					<img class="loop-image" src="{{asset('/assets/imagelists') . '/' . $list->id . '.jpg'}}" alt="{{$list->name}}" title="Lista de películas {{$list->name}}" width="166" height="248">
@@ -45,6 +25,27 @@
 				 --><div class="no-thumb"></div>
 				@endif
 			</div>
+
+			<div class="meta">
+				<span>
+					<span>
+						@if ($list->movies->count() == 0)
+							No hay nada
+						@elseif ($list->movies->count() == 1)
+							1 película
+						@else
+							{{$list->movies->count()}} películas
+						@endif
+					</span>
+					@if ($list->updated_at)
+					<i class="separator">·</i>
+						<span class="no-wrap">
+							{{$list->updated_at->diffForHumans()}}
+						</span>
+					@endif
+				</span>
+			</div>
+			
 			<div class="loop-title">
 				<h3>{{$list->name}}@if ($list->ordered)<i class="fa fa-sort-numeric-asc icon-ordered"></i>@endif</h3>
 			</div>

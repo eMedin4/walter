@@ -16,9 +16,9 @@
 	<meta property="og:image"           content="@yield('og_image')" /> 
 	<meta property="og:description"     content="@yield('og_description')" />
 
+	<script src="https://use.fortawesome.com/712aad58.js"></script>
 	<link rel="stylesheet" href="{{ asset('/assets/css/style2.css') }}">
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600" rel="stylesheet">
-	<script src="https://use.fortawesome.com/712aad58.js"></script>
 	@yield('topscripts')
 </head>
 
