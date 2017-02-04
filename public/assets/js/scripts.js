@@ -303,7 +303,7 @@ $('.js-edit-list').on('click', function(){
         `<form class="modal-edit-list">
             <h3>Editar lista</h3>
             <div class="errors"></div>
-            <input type="text" name="name" maxlength="24" value="` + name + `">           
+            <input type="text" name="name" maxlength="32" value="` + name + `">           
             <textarea name="description" rows="3" maxlength="200" placeholder="Descripción" ` + (description ? "style='display:block;'" : "")  + `>` + description + `</textarea>
             <div class="btn-group">
                 <button type="submit" class="btn">Actualizar</button>

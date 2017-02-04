@@ -388,6 +388,7 @@ body > .inner {
     line-height: 20px;
     color: #e1e6ea;
     padding-bottom: 4px;
+    word-wrap:break-word;
 }
 
 .info-details {
@@ -1590,6 +1591,11 @@ input[type=checkbox]:checked + .lbl-check:before {
         text-align: left;
         padding: 13px 5px 0 16px;
         width: 353px;
+        /*HACK PARA FIJAR EL INFO EVITAR QUE CREZCA O MENGUE EN UFUNCION DEL TEXTO*/
+        min-width: 270px;
+        max-width: 270px;
+        flex-basis: auto;
+        flex-grow: 1;
     }
 
     .related-lists {
