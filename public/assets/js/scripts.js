@@ -136,7 +136,7 @@ $('.js-new-list').on('click', function(){
             <input type="hidden" name="_token" value="` + csrf + `">
             <h3>Nueva lista</h3>
             <div class="errors"></div>
-            <input type="text" name="name" maxlength="24" placeholder="Nombre">           
+            <input type="text" name="name" maxlength="32" placeholder="Nombre">           
             <textarea name="description" rows="3" maxlength="200" placeholder="Descripción"></textarea>
             <div class="btn-group">
                 <button type="submit" class="btn">Crear</button>

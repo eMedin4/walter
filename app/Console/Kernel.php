@@ -31,11 +31,6 @@ class Kernel extends ConsoleKernel
         $schedule->call('App\Http\Controllers\Admin\BuildController@movistar')
                 ->dailyAt('06:00');
 
-        $schedule->call('App\Http\Controllers\Admin\BuildController@movistar')
-                ->dailyAt('07:35');    
-
-        $schedule->call('App\Http\Controllers\Admin\BuildController@movistar')
-                ->dailyAt('07:38');
     }
 
     /**

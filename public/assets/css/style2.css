@@ -537,10 +537,9 @@ button.btn {
 }
 
 .edit-note {
-    padding: 12px;
-    color: #97a4ad;
+    padding: 12px 0;
+    color: #f3b5b5;
     line-height: 20px;
-    letter-spacing: -0.3px;
 }
 
 .edit-note strong {
@@ -691,11 +690,11 @@ button.btn {
     top: 1px;    
 }
 
-.icon-check-list {
-    font-size: 10px;
-    padding-left: 3px;
+i.icon-check-list {
+    font-size: 11px;
+    padding-left: 1px;
     position: relative;
-    right: -2px;
+    right: -4px;
     top: -1px;
 }
 
