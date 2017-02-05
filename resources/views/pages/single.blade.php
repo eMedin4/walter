@@ -2,6 +2,11 @@
 
 @section('title', 'Película - ' . $movie->title)
 @section('metadescription', $movie->title . ': Sinópsis, críticas y puntuaciones. Guarda ' . $movie->title . 'en tus listas o crea rankings personalizados')
+@section('og_type', 'article')
+@section('more_og')
+	<meta property="og:article:author"        content="Oficial Indicecine" />
+	<meta property="og:article:publisher"     content="https://www.facebook.com/Indicecine-247570282336712" />
+@endsection
 @section('og_url', Request::fullUrl())
 @section('og_title', $movie->title)
 @section('og_image', asset('/assets/posters/large') . $movie->poster)

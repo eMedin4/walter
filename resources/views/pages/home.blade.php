@@ -2,6 +2,7 @@
 
 @section('title', 'Cartelera - Películas en cines')
 @section('metadescription', 'Cartelera - Películas en cines')
+@section('og_type', 'website')
 @section('og_url', 'http://indicecine.net')
 @section('og_title', 'Indicecine')
 @section('og_image', asset('/assets/posters/large') . $specialList->where('name', 'Estreno')->first()->movie->poster)
