@@ -14,6 +14,8 @@
 	<meta property="og:url"             content="@yield('og_url')" /> 
 	<meta property="og:title"           content="@yield('og_title')" /> 
 	<meta property="og:image"           content="@yield('og_image')" /> 
+	<meta property="og:image:width"           content="320" /> 
+	<meta property="og:image:height"           content="480" /> 
 	<meta property="og:description"     content="@yield('og_description')" />
 
 	<script src="https://use.fortawesome.com/712aad58.js"></script>
