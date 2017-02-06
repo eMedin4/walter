@@ -68,6 +68,13 @@
 						</a>
 					</article>
 				@endforeach
+
+				@for ($i = 0; $i < 7; $i++)
+					<article class="empty-grid empty-grid-invisible js-ignore-edit">
+						<div></div>
+					</article>
+				@endfor
+
 				{{$specialList->links()}}
 			@else
 				<h3 class="empty">No hay nada aún</h3>

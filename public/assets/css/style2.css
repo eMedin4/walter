@@ -813,6 +813,11 @@ i.icon-check-list {
     height: 28px;
 }
 
+.loop .empty-grid-invisible,
+.loop .empty-grid-invisible div {
+    height: 0;
+}
+
 .empty-grid > div {
     width: 166px;
     background: #262a2d;
