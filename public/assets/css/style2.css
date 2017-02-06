@@ -316,6 +316,38 @@ body > .inner {
 
 
 /************************************************************************************************
+    FOOTER & STATIC PAGES
+************************************************************************************************/
+
+footer {
+    background: #262a2d;
+    padding: 40px 10px;
+    margin-top: 20px;
+}
+
+.static-wrap {
+    background: #fff;
+    color: #1c1f21;
+    padding: 40px;
+}
+
+.static-wrap h1 {
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: -1px;
+    padding-bottom: 10px;
+}
+
+.static-wrap h2 {
+    font-size: 24px;
+    padding: 20px 0 10px;
+}
+
+.static-wrap a {
+    color: #06c;
+}
+
+/************************************************************************************************
     INFO
 ************************************************************************************************/
 
@@ -821,8 +853,6 @@ i.icon-check-list {
 .empty-grid > div {
     width: 166px;
     background: #262a2d;
-    position: relative;
-    top: 33px;    
 }
 
 .tag {
@@ -856,6 +886,24 @@ i.icon-check-list {
 
 .tv-tag span {
     font-size: 13px;
+}
+
+.pagination {
+    font-size: 30px;
+}
+
+.pagination li {
+    display: inline-block;
+}
+
+.pagination a {
+    padding: 1px 14px;
+    background: #31373a;
+    border-radius: 3px;
+}
+
+.pagination .disabled {
+    display: none;
 }
 
 

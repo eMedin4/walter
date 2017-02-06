@@ -67,6 +67,7 @@ POSTER QUE NO SE GUARDA: 2QoLPgwWphEO2eVDm6ehGxCWoXV c9YqifOPRSdSPapWVwRZipwORz7
 /*
 	MAIN
 */
+	Route::get('/privacidad', function () { return view('pages.privacy'); });
 
 	Route::get('/', ['as' => 'home', 'uses' => 'MovieController@home']);
 	Route::get('/television', ['as' => 'tv', 'uses' => 'MovieController@tv']);
@@ -77,4 +78,6 @@ POSTER QUE NO SE GUARDA: 2QoLPgwWphEO2eVDm6ehGxCWoXV c9YqifOPRSdSPapWVwRZipwORz7
 	Route::post('/livesearch', ['as' => 'livesearch', 'uses' => 'MovieController@liveSearch']);
 	Route::get('/normalsearch', ['as' => 'normalsearch', 'uses' => 'MovieController@normalSearch']);
 	Route::get('/{slug}', ['as' => 'show', 'uses' => 'MovieController@show']);
+
+	
 
