@@ -760,7 +760,7 @@ i.icon-check-list {
     font-size: 13px;
     line-height: 14px;
     align-items: flex-end;
-    padding: 5px 2px 1px;
+    padding: 6px 4px 3px 2px;
 }
 
 .meta .separator {
@@ -770,7 +770,6 @@ i.icon-check-list {
 }
 
 .meta span {
-    padding-bottom: 1px;
     letter-spacing: -0.5px;
     color: #a4abb1;
 }
@@ -857,9 +856,11 @@ i.icon-check-list {
 
 .tag {
     color: #a4abb1;
-    font-size: 14px;
-    line-height: 27px;
-    text-align: center;
+    font-size: 13px;
+    line-height: 30px;
+    padding: 0 4px;
+    display: inline-block;
+    letter-spacing: 0;
 }
 
 .release-tag {
@@ -871,21 +872,27 @@ i.icon-check-list {
 .tv-tag {
     display: flex;
     align-items: flex-end;
-    justify-content: space-between;
-    height: 28px;
-    padding-bottom: 6px;
+    justify-content: flex-end;
+    height: 35px;
 }
 
 .tv-tag time {
-    padding-left: 8px;
     font-weight: 600;
     letter-spacing: -0.5px;
     color: #e1e6ea;
     line-height: 14px;
+    background: #0e1011;
+    padding: 8px 8px 7px;
+    margin-right: 2px;
+}
+
+.tv-tag img {
+    padding: 6px;
 }
 
 .tv-tag span {
     font-size: 13px;
+    font-weight: 400;
 }
 
 .pagination {
@@ -1813,7 +1820,7 @@ input[type=checkbox]:checked + .lbl-check:before {
 
     .loop {
         justify-content: space-between;
-        margin-right: 20px;
+        margin-right: 30px;
     }
 
     .info {
