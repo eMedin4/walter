@@ -49,7 +49,7 @@ class ShowRepository {
 
     public function tv()
     {
-        return MovistarSchedule::with('movie')->where('time', '>', Carbon::now()->subHour())->orderBy('time')->get();
+        return MovistarSchedule::with('movie')->where('time', '>', Carbon::now()->subHour())->orderBy('time')->simplePaginate(60);
         //MovieList::where('id', 2)->with('movies', 'movies.movistarSchedule')->first();
     }
 

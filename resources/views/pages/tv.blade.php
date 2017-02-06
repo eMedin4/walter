@@ -68,6 +68,7 @@
 						</a>
 					</article>
 				@endforeach
+				{{$specialList->links()}}
 			@else
 				<h3 class="empty">No hay nada aún</h3>
 			@endif
