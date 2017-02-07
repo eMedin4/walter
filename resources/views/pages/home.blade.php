@@ -34,6 +34,9 @@
 				<h3>Otras listas populares</h3>
 				<ul class="lists-item">
 					<li><a href="{{route('tv')}}">En Tv</a></li>
+					@foreach ($popularLists as $list)
+						<li><a href="{{route('list', ['id' => $list->id, 'name' => str_slug($list->name)])}}">{{$list->name}}</a></li>
+					@endforeach
 				</ul>
 			</div>
 

@@ -53,6 +53,11 @@ class ShowRepository {
         //MovieList::where('id', 2)->with('movies', 'movies.movistarSchedule')->first();
     }
 
+    public function popularLists()
+    {
+        return MovieList::orderBy('relevance', 'desc')->take(6)->get();
+    }
+
     public function character($id)
     {
         return Character::with(['movies' => function($q) {

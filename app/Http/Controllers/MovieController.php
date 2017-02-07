@@ -48,14 +48,15 @@ class MovieController extends Controller
 	{
 		$specialList = $this->show->home();
 		$date = $this->show->getParam('Cartelera', 'date');
-		return view('pages.home', compact('specialList', 'date'));
+		$popularLists = $this->show->popularLists();
+		return view('pages.home', compact('specialList', 'date', 'popularLists'));
 	}
 
 	public function tv()
 	{
 		$specialList = $this->show->tv();
-
-		return view('pages.tv', compact('specialList'));
+		$popularLists = $this->show->popularLists();
+		return view('pages.tv', compact('specialList', 'popularLists'));
 	}
 
 	public function characters($name, $id)
