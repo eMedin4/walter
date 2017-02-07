@@ -26,12 +26,12 @@ class ListController extends Controller
         }
 
         $this->validate($request, [
-	        'name' => 'required|max:32',
+	        'name' => 'required|max:48',
 	        'description' => 'max:500',
 	        'ordered' => 'boolean'
 	    ],[
 	    	'name.required' => 'Introduce un nombre para tu lista',
-	    	'name.max' => '32 carácteres máximo',
+	    	'name.max' => '48 carácteres máximo',
 	    	'description.max' => '500 carácteres máximo',
 	    	'ordered.boolean' => 'valor de lista numerada incorrecto'
 	    ]);
