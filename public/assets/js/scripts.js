@@ -187,10 +187,24 @@ $('.modal').on('submit', '.modal-new-list', function(e){
                 new_item.show('slow');
             } else {
                 //que hacer cuando añadimos desde user-lists
-                var html= `<article class="new-grid"><a class="list" href="` + $('.js-new-list').data('path') + `lista/` + data.name + `/` + data.id + `">
-                    <div class="meta"><span><span>No hay nada </span><i class="separator">·</i><span class="no-wrap"> Ahora</span></span></div>
-                    <div class="list-image relative"><div class="loop-no-image"></div></div>
-                    <div class="loop-title"><h3>` + data.name + `</h3></div></a></article>`;
+                var html= `
+                    <article class="new-grid">
+                        <a class="list" href="` + $('.js-new-list').data('path') + `lista/` + data.slugname + `/` + data.id + `">
+                            <div class="list-image relative">
+                                <div class="loop-no-image"></div>
+                            </div>
+                            <div class="meta">
+                                <span>
+                                    <span>No hay nada </span>
+                                    <i class="separator">·</i>
+                                    <span class="no-wrap"> ahora</span>
+                                </span>
+                            </div>
+                            <div class="loop-title">
+                                <h3>` + data.name + `</h3>
+                            </div>
+                        </a>
+                    </article>`;
                 $('.loop').prepend(html);
             }
         }
@@ -307,7 +321,7 @@ $('.js-edit-list').on('click', function(){
             <textarea name="description" rows="3" maxlength="500" placeholder="Descripción" ` + (description ? "style='display:block;'" : "")  + `>` + description + `</textarea>
             <div class="btn-group">
                 <button type="submit" class="btn">Actualizar</button>
-                <button type="button" class="btn btn-cancel">Cancelar</button>
+                <button type="button" class="btn btn-cancel propagation">Cancelar</button>
             </div>
             <div class="checkbox">
                 <input id="check-description" type="checkbox" name="check-description" ` + (description ? "checked" : "")  + `>

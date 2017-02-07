@@ -841,8 +841,13 @@ i.icon-check-list {
 
 .release-tag {
     color: #ffffff;
-    background: #bb4545;
+    background: #d24545;
     padding: 0 6px;
+    margin-left: 4px;
+    position: relative;
+    z-index: 1;
+    outline: 2px solid rgba(28, 31, 33, 0.28);
+    outline-offset: -2px;
 }
 
 .tv-tag {

@@ -125,7 +125,7 @@ class SocialController extends Controller
 
     public function postLoginAdmin(Request $request)
     {
-        if (Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')])) {
+        if (Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')], true)) {
             return redirect()->route('home');
         } else {
             return back()->withInputs();

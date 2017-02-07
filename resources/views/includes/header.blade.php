@@ -25,12 +25,8 @@
 		<span class="search-launch"><i class="fa fa-search-btb"></i></span>
 		@if (Auth::check())
 		    <a class="user-logged" href="{{route('userlists', ['name' => str_slug(Auth::user()->name), 'id' => Auth::user()->id])}}">
-			    @if(Auth::user()->avatar)
-			    	<div class="nick">{{Auth::user()->nick}}</div>
-			    	<div class="mini-nick">{{substr(Auth::user()->nick, 0, 1)}}</div>
-			    @else
-		    		<i class="fa fa-user-circle-o avatar-default-me"></i>
-			    @endif
+		    	<div class="nick">{{Auth::user()->nick}}</div>
+		    	<div class="mini-nick">{{substr(Auth::user()->nick, 0, 1)}}</div>
 		    </a>
 		@else
 			<a class="no-logged" href="{{route('login')}}"><i class="fa fa-user-circle"></i></a>

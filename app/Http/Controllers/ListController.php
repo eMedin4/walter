@@ -37,6 +37,7 @@ class ListController extends Controller
 	    ]);
 
 	    $state = $this->build->newList($request->input('name'), $request->input('movie'), $request->input('ordered'), $request->input('description'));
+	    $state['slugname'] = str_slug($request->input('name'), '-');
 
 	    return response()->json($state);
 	}
