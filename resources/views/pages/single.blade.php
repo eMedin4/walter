@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title', 'Película - ' . $movie->title)
-@section('metadescription', $movie->title . ': Sinópsis, críticas y puntuaciones. Guarda ' . $movie->title . 'en tus listas o crea rankings personalizados')
+@section('metadescription', $movie->title . ': ' . $movie->review)
 @section('og_type', 'article')
 @section('more_og')
 	<meta property="article:author"        content="https://www.facebook.com/Indicecine-247570282336712" />

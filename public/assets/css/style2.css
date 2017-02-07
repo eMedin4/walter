@@ -635,42 +635,7 @@ button.btn {
     top: 0;
 }
 
-/*.edit-field {
-    background: #ffffff;
-    color: #272c2f;
-    padding: 6px 10px;
-    margin-top: 10px;
-    border-radius: 3px;
-}
 
-.edit-title {
-    max-width: 260px;
-}
-
-.edit-description {
-    min-height: 60px;
-}
-
-.edit-field[placeholder]:empty:before {
-    content: attr(placeholder);
-    color: #9dabb3; 
-}
-
-.edit-field[placeholder]:empty:focus:before {
-    content: "";
-}
-
-.info-edit .checkbox {
-    margin-top: 6px;
-}
-
-.edit-btns {
-    margin: 10px 0 8px;
-}
-
-.edit-btns div {
-    margin: 0 2px;
-}*/
 
 
 /************************************************************************************************
@@ -781,6 +746,17 @@ i.icon-check-list {
     z-index: 0;*/
     height: auto;
     width: 100%;
+    outline: 4px solid rgba(21, 22, 25, 0.5);
+    outline-offset: -2px;
+}
+
+.loop-image {
+      -webkit-filter: brightness(100%);
+          transition: all .5s ease;
+}
+
+.movie:hover .loop-image {
+    -webkit-filter: brightness(80%);
 }
 
 .list-image {

@@ -137,7 +137,7 @@ $('.js-new-list').on('click', function(){
             <h3>Nueva lista</h3>
             <div class="errors"></div>
             <input type="text" name="name" maxlength="32" placeholder="Nombre">           
-            <textarea name="description" rows="3" maxlength="200" placeholder="Descripción"></textarea>
+            <textarea name="description" rows="3" maxlength="500" placeholder="Descripción"></textarea>
             <div class="btn-group">
                 <button type="submit" class="btn">Crear</button>
                 <button type="button" class="btn btn-cancel propagation">Cancelar</button>
@@ -304,7 +304,7 @@ $('.js-edit-list').on('click', function(){
             <h3>Editar lista</h3>
             <div class="errors"></div>
             <input type="text" name="name" maxlength="32" value="` + name + `">           
-            <textarea name="description" rows="3" maxlength="200" placeholder="Descripción" ` + (description ? "style='display:block;'" : "")  + `>` + description + `</textarea>
+            <textarea name="description" rows="3" maxlength="500" placeholder="Descripción" ` + (description ? "style='display:block;'" : "")  + `>` + description + `</textarea>
             <div class="btn-group">
                 <button type="submit" class="btn">Actualizar</button>
                 <button type="button" class="btn btn-cancel">Cancelar</button>

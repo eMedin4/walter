@@ -39,4 +39,22 @@ class MovieList extends Model
             'total' => $countList
         ];
     }*/
+
+    public function getAutolinkDescriptionAttribute()
+    {
+        $str = htmlentities($this->description);
+        $attributes = array();
+        $str = str_replace(["http://www", "https://www"], "www", $str);
+        $attrs = '';
+
+        foreach ($attributes as $attribute => $value) {
+            $attrs .= " {$attribute}=\"{$value}\"";
+        } 
+
+        $str = ' ' . $str;
+        $str = preg_replace('`([^"=\'>])((http|https|ftp)://[^\s<]+[^\s<\.)])`i', '$1<a href="$2"'.$attrs.'>$2</a>', $str);
+        $str = preg_replace('`([^"=\'>])((www).[^\s<]+[^\s<\.)])`i', '$1<a href="http://$2"'.$attrs.'>$2</a>', $str);
+        $str = substr($str, 1);
+        return $str;
+    }
 }

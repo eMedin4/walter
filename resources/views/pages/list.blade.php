@@ -14,7 +14,7 @@
 
 				<h1 class="h1 original-name">{{$list->name}}</h1>
 				@if (!empty($list->description))
-					<h2 class="original-description">{{$list->description}}</h2>
+					<h2 class="original-description">{!!$list->autolinkDescription!!}</h2>
 				@endif
 
 				<ul class="info-details">
@@ -50,7 +50,7 @@
 				</div>
 
 				<h2 class="h1 name">{{$list->name}}</h2>
-				<h2 class="description">{{$list->description}}</h2>
+				<h2 class="description">{!!$list->autolinkDescription!!}</h2>
 
                 <ul class="btn-wrap">
                     <li><div class="btn btn-power edit-submit" data-url="{{route('posteditlist')}}" data-id="{{$list->id}}">Guardar</div></li>
