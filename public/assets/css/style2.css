@@ -371,9 +371,9 @@ footer {
 
 .related-lists h3 {
     font-size: 14px;
-    color: #e1e6ea;
-    text-transform: uppercase;
-    letter-spacing: .3px;
+    color: #a4abb1;
+    letter-spacing: 0;
+    padding: 8px 2px 4px;
 }
 
 .related-lists-links {
@@ -1787,12 +1787,13 @@ input[type=checkbox]:checked + .lbl-check:before {
 
     .info {
         padding: 13px 15px 0 16px;
-        width: 365px;
+        min-width: 320px;
+        max-width: 320px;
     }
 
 }
 
-@media (min-width:1824px) {
+@media (min-width:1854px) {
 
     .limit {
         width: auto;
@@ -1805,7 +1806,8 @@ input[type=checkbox]:checked + .lbl-check:before {
     }
 
     .info {
-        width: 420px;
+        min-width: 400px;
+        max-width: 400px;
     }
 
     .info h1.h1 {

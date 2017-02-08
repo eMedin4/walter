@@ -43,7 +43,7 @@ class MovieList extends Model
     public function getAutolinkDescriptionAttribute()
     {
         $str = htmlentities($this->description);
-        $attributes = array();
+        $attributes = array('rel' => 'nofollow', 'target' => '_blank');
         $str = str_replace(["http://www", "https://www"], "www", $str);
         $attrs = '';
 
