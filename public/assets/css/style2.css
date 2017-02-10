@@ -97,7 +97,7 @@ body {
 }
 
 body > .inner {
-    background: #1c1f21;
+    background: #131517;
 }
 
 .limit {
@@ -724,8 +724,8 @@ i.icon-check-list {
     justify-content: space-between;
     font-size: 13px;
     line-height: 14px;
-    align-items: flex-end;
-    padding: 6px 4px 3px 2px;
+    align-items: flex-start;
+    padding: 6px 2px 3px 0;
 }
 
 .meta .separator {
@@ -746,8 +746,6 @@ i.icon-check-list {
     z-index: 0;*/
     height: auto;
     width: 100%;
-    outline: 4px solid rgba(21, 22, 25, 0.5);
-    outline-offset: -2px;
 }
 
 .loop-image {
@@ -833,8 +831,7 @@ i.icon-check-list {
 .tag {
     color: #a4abb1;
     font-size: 13px;
-    line-height: 30px;
-    padding: 0 4px;
+    line-height: 28px;
     display: inline-block;
     letter-spacing: 0;
 }
@@ -844,10 +841,6 @@ i.icon-check-list {
     background: #d24545;
     padding: 0 6px;
     margin-left: 4px;
-    position: relative;
-    z-index: 1;
-    outline: 2px solid rgba(28, 31, 33, 0.28);
-    outline-offset: -2px; 
 }
 
 .tv-tag {
@@ -894,15 +887,26 @@ i.icon-check-list {
     display: none;
 }
 
+.image-reflex {
+    position: ABSOLUTE;
+    z-index: 1;    
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: linear-gradient(-90deg,transparent 0,rgba(0, 0, 0, 0.4) 100%);
+}
+
 
 /************************************************************************************************
     RATINGS: ***
 ************************************************************************************************/
 
 .rating {
-    font-size: 10px;
-    letter-spacing: -2px;
+    font-size: 11px;
+    letter-spacing: -1px;
     flex-shrink: 0;
+    padding-top: 1px;
 }
 
 .rating .desactivate {

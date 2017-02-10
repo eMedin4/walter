@@ -60,6 +60,7 @@
 							@endif
 
 							<div class="medium-image relative">
+								<div class="image-reflex"></div>
 								@if ($schedule->movie->check_poster)
 									<img class="loop-image" src="{{asset('/assets/posters/medium') . $schedule->movie->poster}}" alt="{{$schedule->movie->title}}" title="poster de {{$schedule->movie->title}}" width="166" height="249">
 								@else 
