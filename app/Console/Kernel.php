@@ -29,7 +29,10 @@ class Kernel extends ConsoleKernel
                 ->weekly()->fridays()->at('06:00');
 
         $schedule->call('App\Http\Controllers\Admin\BuildController@movistar')
-                ->dailyAt('06:00');
+                ->dailyAt('06:00');        
+
+        $schedule->call('App\Http\Controllers\Admin\BuildController@movistar')
+                ->dailyAt('05:30');
 
     }
 

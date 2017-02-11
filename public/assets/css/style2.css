@@ -973,11 +973,20 @@ i.icon-check-list {
     white-space: nowrap;
 }
 
-/* .percentage {
-    font-size: 14px;
-    padding-left: 1px;
-} */
+/************************************************************************************************
+    COUNTRIES: 
+************************************************************************************************/
 
+.country {
+    width: 22px;
+    height: 15px;
+    background-image: url("../images/flags.png");
+    background-repeat: no-repeat;
+}
+
+.country-estados-unidos {
+
+}
 
 /************************************************************************************************
     SUMMARY
