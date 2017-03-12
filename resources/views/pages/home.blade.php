@@ -5,7 +5,7 @@
 @section('og_type', 'website')
 @section('og_url', 'http://indicecine.net')
 @section('og_title', 'Indicecine')
-@section('og_image', asset('/assets/posters/large') . $specialList->where('name', 'Estreno')->first()->movie->poster)
+@section('og_image', $specialList->isEmpty() ? ' ' : asset('/assets/posters/large') . $specialList->where('name', 'Estreno')->first()->movie->poster)
 @section('og_description', 'Cartelera de cines en España, semana del ' . $date->formatLocalized('%e de %B de %Y'))
 @section('bodyclass', 'home-page')
 

@@ -48,10 +48,25 @@ class Movie extends Model
     {
         if($this->im_rat != -1) {
             if($this->rt_rat != -1) {
-                return intval(($this->im_rat + $this->rt_rat / 10 + $this->fa_rat) / 3);
+                $value = intval(($this->im_rat + $this->rt_rat / 10 + $this->fa_rat) / 3);
+                return $this->stars($value);
             }
-            return intval(($this->im_rat + $this->fa_rat) / 2);
+            $value = intval(($this->im_rat + $this->fa_rat) / 2);
+            return $this->stars($value);
         }
-        return intval($this->fa_rat);
+        $value = intval($this->fa_rat);
+        return $this->stars($value);
+    }
+
+    public function stars($value)
+    {
+        switch (true) {
+            case ($value > 8): return 5;
+            case ($value > 7): return 4;
+            case ($value > 6): return 3;
+            case ($value > 5): return 2;
+            case ($value > 4): return 1;
+            default: return 0;
+        }
     }
 }

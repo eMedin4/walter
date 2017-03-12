@@ -72,14 +72,14 @@ a {
 .input-search::-moz-placeholder { color: #959ba0; }
 .input-search:-ms-input-placeholder { color: #959ba0; }
 
-.wf-loading h1,
+/*.wf-loading h1,
 .wf-loading h2,
 .wf-loading h3,
 .wf-loading p,
 .wf-loading input,
 .wf-loading .meta {
     visibility: hidden;
-}
+}*/
 
 html {
     font-size: 18px;
@@ -719,26 +719,6 @@ i.icon-check-list {
     width: 50%;
 }
 
-.meta {
-    display: flex;
-    justify-content: space-between;
-    font-size: 13px;
-    line-height: 14px;
-    align-items: flex-start;
-    padding: 6px 2px 3px 0;
-}
-
-.meta .separator {
-    font-size: 18px;
-    position: relative;
-    top: 3px;
-}
-
-.meta span {
-    letter-spacing: -0.5px;
-    color: #a4abb1;
-}
-
 .loop-image,
 .large-image img {
     vertical-align: bottom;
@@ -845,23 +825,20 @@ i.icon-check-list {
 
 .tv-tag {
     display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
-    height: 35px;
+    align-items: center;
+    justify-content: flex-start;
+    height: 30px;
+    margin: 4px 0 2px;
 }
 
 .tv-tag time {
     font-weight: 600;
     letter-spacing: -0.5px;
-    color: #e1e6ea;
-    line-height: 14px;
-    background: #0e1011;
-    padding: 8px 8px 7px;
-    margin-right: 2px;
 }
 
 .tv-tag img {
     padding: 6px;
+    display: none;
 }
 
 .tv-tag span {
@@ -899,14 +876,114 @@ i.icon-check-list {
 
 
 /************************************************************************************************
-    RATINGS: ***
+    META
 ************************************************************************************************/
+
+
+.meta {
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    margin-left: 4px;
+    margin-top: -8px;
+}
+
+.meta .year {
+    font-size: 16px;
+    font-weight: 600;
+    background: #131517;
+    display: inline-block;
+    line-height: 16px;
+    padding: 0 3px;
+    border-radius: 3px;
+}
+
+.country {
+    height: 19px;
+    background-image: url(../images/flags.png);
+    background-repeat: no-repeat;
+    margin: 0 3px 0 4px;
+}
+
+.country-estados-unidos { width: 26px; background-position: left top; }
+.country-alemania { width: 26px; background-position: left -20px; }
+.country-japon { width: 26px; background-position: left -40px; }
+.country-espana { width: 26px; background-position: left -60px; }
+.country-francia { width: 26px; background-position: left -80px; }
+.country-australia { width: 26px; background-position: left -100px; }
+.country-reino-unido { width: 26px; background-position: left -120px; }
+.country-italia { width: 26px; background-position: left -140px; }
+.country-belgica { width: 26px; background-position: left -160px; }
+
+.stars {
+    width: 72px;
+    height: 20px;
+    background-image: url("../images/stars.png");
+    background-repeat: no-repeat;
+}
+
+.stars-5 { background-position: left 0px; width: 72px;}
+.stars-4 { background-position: left -22px; width: 59px;}
+.stars-3 { background-position: left -44px; width: 46px;}
+.stars-2 { background-position: left -66px; width: 33px;}
+.stars-1 { background-position: left -88px; width: 21px;}
+.stars-0 { background-position: left -108px; width: 18px;}
+
+
+
+
+
+
+
+.channel-logo {
+    background-image: url('../images/channels.png');    
+}
+
+.channel-logo-MV1 { background-position: 0 0; width: 76px; height: 19px; }
+.channel-logo-CPACCI { background-position: 0 -30px; width: 67px; height: 19px; }
+.channel-logo-CPCOME { background-position: 0 -60px; width: 80px; height: 19px; }
+.channel-logo-CPCOLE { background-position: 0 -90px; width: 63px; height: 19px; }
+.channel-logo-CPXTRA { background-position: 0 -120px; width: 53px; height: 19px; }
+.channel-logo-AXN { background-position: 0 -150px; width: 57px; height: 19px; }
+.channel-logo-SET { background-position: 0 -180px; width: 57px; height: 24px; }
+.channel-logo-TNT { background-position: 0 -210px; width: 37px; height: 14px; }
+.channel-logo-TCM { background-position: 0 -240px; width: 61px; height: 19px; }
+.channel-logo-AMC { background-position: 0 -270px; width: 40px; height: 19px; }
+.channel-logo-MV3 { background-position: -100px 0; width: 29px; height: 18px; }
+.channel-logo-CL13 { background-position: -100px -30px; width: 28px; height: 24px; }
+.channel-logo-PCM { background-position: -100px -60px; width: 53px; height: 19px; }
+.channel-logo-PARCH { background-position: -100px -90px; width: 72px; height: 23px; }
+.channel-logo-SCI-FI { background-position: -100px -120px; width: 35px; height: 19px; }
+.channel-logo-FOXGE { background-position: -100px -150px; width: 33px; height: 14px; }
+.channel-logo-FOXCR { background-position: -100px -180px; width: 64px; height: 24px; }
+.channel-logo-HOLLYW { background-position: -100px -210px; width: 77px; height: 22px; }
+.channel-logo-COSMO { background-position: -100px -240px; width: 47px; height: 25px; }
+.channel-logo-DCH { background-position: -100px -270px; width: 51px; height: 21px; }
+.channel-logo-A3 { background-position: -200px -0px; width: 26px; height: 22px; }
+.channel-logo-SEXTA { background-position: -200px -30px; width: 17px; height: 20px; }
+.channel-logo-T5 { background-position: -200px -60px; width: 15px; height: 19px; }
+.channel-logo-LA2 { background-position: -200px -90px; width: 24px; height: 24px; }
+.channel-logo-TVE { background-position: -200px -120px; width: 24px; height: 24px; }
+.channel-logo-DIVINI { background-position: -200px -150px; width: 21px; height: 22px; }
+.channel-logo-NOVA { background-position: -200px -180px; width: 44px; height: 13px; }
+.channel-logo-C4 { background-position: -200px -210px; width: 63px; height: 15px; }
+.channel-logo-NEOX { background-position: -200px -240px; width: 53px; height: 13px; }
+
+
+
+
+
+
+
+
 
 .rating {
     font-size: 11px;
     letter-spacing: -1px;
     flex-shrink: 0;
     padding-top: 1px;
+    display: none;
 }
 
 .rating .desactivate {
@@ -973,20 +1050,7 @@ i.icon-check-list {
     white-space: nowrap;
 }
 
-/************************************************************************************************
-    COUNTRIES: 
-************************************************************************************************/
 
-.country {
-    width: 22px;
-    height: 15px;
-    background-image: url("../images/flags.png");
-    background-repeat: no-repeat;
-}
-
-.country-estados-unidos {
-
-}
 
 /************************************************************************************************
     SUMMARY

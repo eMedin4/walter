@@ -5,7 +5,7 @@
 @section('og_type', 'website')
 @section('og_url', 'http://indicecine.net/Televisión')
 @section('og_title', 'Indicecine televisión')
-@section('og_image', asset('/assets/posters/large') . $specialList->where('channel_code', 'MV1')->first()->movie->poster)
+@section('og_image', $specialList->isEmpty() ? ' ' : asset('/assets/posters/large') . $specialList->where('channel_code', 'MV1')->first()->movie->poster)
 @section('og_description', 'Programación de televisión: Todas las películas de los canales de la TDT, Movistar Plus, y canales digitales')
 @section('bodyclass', 'home-page')
 
@@ -41,11 +41,6 @@
 					<article>
 						<a class="movie" href="{{route('show', $schedule->movie->slug)}}" data-id="{{$schedule->movie->id}}">
 
-							<div class="tv-tag">
-								<img src="{{asset('/assets/images/channels') . '/' . $schedule->channel_code . '.png'}}">
-								<time>{!!$schedule->formatTime!!}</time>
-							</div>
-
 							<div class="medium-image relative">
 								<div class="image-reflex"></div>
 								@if ($schedule->movie->check_poster)
@@ -56,11 +51,18 @@
 							</div>
 
 							<div class="meta">
-								<span>{{$schedule->movie->year}} <i class="separator">·</i> {{$schedule->movie->country}}</span>
+								<div class="year">{{$schedule->movie->year}}</div>
 								<div class="country country-{{str_slug($schedule->movie->country)}}"></div>
+								<div class="stars stars-{{$schedule->movie->average}}"></div>
 								<div class="rating rating-{{$schedule->movie->average}}">
 									@include('includes.ratings', ['ratings' => $schedule->movie->average])
 								</div>
+							</div>
+
+							<div class="tv-tag">
+								<div class="channel-logo channel-logo-{{$schedule->channel_code}}"></div>
+								<img src="{{asset('/assets/images/channels') . '/' . $schedule->channel_code . '.png'}}">
+								<time>{!!$schedule->formatTime!!}</time>
 							</div>
 
 							<div class="loop-title">

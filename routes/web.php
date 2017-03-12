@@ -69,7 +69,7 @@ POSTER QUE NO SE GUARDA: 2QoLPgwWphEO2eVDm6ehGxCWoXV c9YqifOPRSdSPapWVwRZipwORz7
 */
 	Route::get('/privacidad', function () { return view('pages.privacy'); });
 
-	Route::get('/', ['as' => 'home', 'uses' => 'MovieController@tv']);
+	Route::get('/', ['as' => 'home', 'uses' => 'MovieController@home']);
 	Route::get('/television', ['as' => 'tv', 'uses' => 'MovieController@tv']);
 	Route::get('/ficha/{name}/{id}', ['as' => 'character', 'uses' => 'MovieController@characters']);
 	Route::get('/perfil/listas/{name}/{id}', ['as' => 'userlists', 'uses' => 'MovieController@userLists']);

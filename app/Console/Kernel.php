@@ -24,15 +24,12 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {  
-
+        
         $schedule->call('App\Http\Controllers\Admin\BuildController@getTheatres')
                 ->weekly()->fridays()->at('06:00');
 
         $schedule->call('App\Http\Controllers\Admin\BuildController@movistar')
-                ->dailyAt('06:00');        
-
-        $schedule->call('App\Http\Controllers\Admin\BuildController@movistar')
-                ->dailyAt('05:30');
+                ->dailyAt('20:24');        
 
     }
 
